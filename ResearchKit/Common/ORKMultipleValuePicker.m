@@ -112,7 +112,11 @@
 
 - (NSUInteger)convertToPickerViewComponent:(NSUInteger)idx {
     if (_shouldShowSeparator) {
-        return idx * 2;
+        if (self.helpers.count > 1) {
+            return idx * 2;
+        } else {
+            return idx;
+        }
     } else {
         return idx;
     }
@@ -226,7 +230,11 @@
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
     if (_shouldShowSeparator) {
-        return self.helpers.count*2 - 1;
+        if (self.helpers.count > 1) {
+            return self.helpers.count*2 - 1;
+        } else {
+            return self.helpers.count*2;
+        }
     } else {
         return self.helpers.count;
     }
