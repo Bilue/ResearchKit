@@ -223,9 +223,9 @@ static NSString *const _FamilyNameIdentifier = @"family";
             signature.familyName = _signatureLast;
         }
     }
-    
-    NSString *html = [document mobileHTMLWithTitle:ORKLocalizedString(@"CONSENT_REVIEW_TITLE", nil)
-                                             detail:ORKLocalizedString(@"CONSENT_REVIEW_INSTRUCTION", nil)];
+
+    NSString *html = [document mobileHTMLWithTitle:self.step.title
+                                            detail:self.step.text];
 
     ORKConsentReviewController *reviewViewController = [[ORKConsentReviewController alloc] initWithHTML:html delegate:self];
     reviewViewController.localizedReasonForConsent = [[self consentReviewStep] reasonForConsent];
