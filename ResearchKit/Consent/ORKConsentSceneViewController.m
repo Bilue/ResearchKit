@@ -202,6 +202,7 @@ static NSString *localizedLearnMoreForType(ORKConsentSectionType sectionType) {
     viewController.title = _section.title ?: ORKLocalizedString(@"CONSENT_LEARN_MORE_TITLE", nil);
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
     navigationController.modalPresentationStyle = UIModalPresentationFormSheet;
+    navigationController.navigationBar.tintColor = self.view.tintColor;
     [self presentViewController:navigationController animated:YES completion:nil];
 }
 
